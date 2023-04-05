@@ -4,7 +4,6 @@ const fs = require('fs')
 
 // import helper functions
 const shapes = require('./lib/shapes.js')
-const text = require('./lib/text.js')
 
 // Create a question array for user input
 const questions = [
@@ -15,7 +14,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'text-color',
+        name: 'textFill',
         message: 'Please select a color for your logo text. (Color Keyword or Hexcode)',
     },
     {
@@ -26,15 +25,27 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'shape-color',
+        name: 'shapeFill',
         message: 'Please select a background color for your logo. (Color Keyword or Hexcode)'
     },
 ]
+
+// Write to the .svg file
+const writeToFile = (fileName, logoContent) => {
+    fs.writeFile('./examples/' + fileName, logoContent, (err) => {
+        err ? console.error(err) : console.log(`Successfully created SVG file`)
+    })
+}
 
 // Function to intitalize 
 const init = () => {
     inquirer
     .prompt(questions)
+    .then((data) => {
+        const fileName = `${data.shape}.svg`
+        const logoContent = shapes(data)
+        writeToFile(fileName, logoContent)
+    })
 }
 
 init()
