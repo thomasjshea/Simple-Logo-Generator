@@ -14,7 +14,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'textFill',
+        name: 'textColor',
         message: 'Please select a color for your logo text. (Color Keyword or Hexcode)',
     },
     {
@@ -25,7 +25,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'shapeFill',
+        name: 'shapeColor',
         message: 'Please select a background color for your logo. (Color Keyword or Hexcode)'
     },
 ]
