@@ -19,12 +19,14 @@ The application runs in the command line, the user will not have to navigate any
 - The user will enter the command "node index.js" to start the application
 - Inquirer will prompt the user with four questions to generate the logo
 - If the user answers all prompts, the logo will be successfully generated. 
-- If the user fails to answer all prompts, or if the user selects a color that does not exist or uses more than three characters, an error message will generate
+- If the user fails to answer all prompts, or if the user selects a color that does not exist or uses more than three characters for their name, an error message will generate
 - I have included tests in this repo. To run the tests, just enter the command "npm run test" into the command line"
 
 ## Credits
 
-I completed this project on my own with no assistance. 
+This application uses the following packages and technologies:
+- Inquirer
+- Jest
 
 ## License
 
