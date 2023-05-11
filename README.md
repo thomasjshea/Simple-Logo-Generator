@@ -16,6 +16,9 @@ After cloning the repository, navigating to the repository using the command lin
 
 The application runs in the command line, the user will not have to navigate anywhere. 
 
+I have included a [Video Walkthrough](https://drive.google.com/file/d/1Rzqh6nmDttaYYGJiIhl-rKp6cC-oK0W2/view) on how to use the application.
+
+These are the Step-by-Step instructions:
 - The user will enter the command "node index.js" to start the application
 - Inquirer will prompt the user with four questions to generate the logo
 - If the user answers all prompts, the logo will be successfully generated. 
