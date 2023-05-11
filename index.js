@@ -1,6 +1,7 @@
 // import required packages to run this application
 const inquirer = require('inquirer')
 const fs = require('fs')
+const generateLogo = require('./lib/generateLogo')
 
 // import helper functions
 const shapes = require('./lib/shapes.js')
@@ -14,7 +15,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'textColor',
+        name: 'color',
         message: 'Please select a color for your logo text. (Color Keyword or Hexcode)',
     },
     {
@@ -25,15 +26,16 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'shapeColor',
+        name: 'background',
         message: 'Please select a background color for your logo. (Color Keyword or Hexcode)'
     },
 ]
 
 // Write to the .svg file
-const writeToFile = (fileName, logoContent) => {
-    fs.writeFile('./examples/' + fileName, logoContent, (err) => {
-        err ? console.error(err) : console.log(`Successfully created SVG file`)
+function writeToFile(data) {
+    let fileName = './examples/logo.svg';
+    fs.writeFile(fileName, data, (err) => {
+        err ? console.log(err) : console.log('Generaged logo.svg');
     })
 }
 
@@ -41,11 +43,8 @@ const writeToFile = (fileName, logoContent) => {
 const init = () => {
     inquirer
     .prompt(questions)
-    .then((data) => {
-        const fileName = `${data.shape}.svg`
-        const logoContent = shapes(data)
-        writeToFile(fileName, logoContent)
-    })
+    .then((answers) => writeToFile(generateLogo(answers)))
+    .catch((err) => console.log(err))
 }
 
 init()
